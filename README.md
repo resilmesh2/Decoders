@@ -1,1 +1,1 @@
-# Decoders
+# Wazuh Decoders
