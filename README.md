@@ -1,7 +1,7 @@
 # Wazuh - Decoders
 
 We need to add some decoders to match the events from Resilmesh Framework, go to: https://localhost:4343/app/decoders#/manager/?tab=decoders
-and add the following decoders from file [resilmesh_decoders.xml](./resilmesh_decoders.xml)
+and add the following decoders from file [resilmesh_decoders.xml](./resilmesh_decoders.xml) and [resilmesh_ad_decoders.xml](./resilmesh_ad_decoders.xml) one by one, **DO NOT MIX THEM!**
 
 Save it, you can test it too, use the 'Decoders Test' button, and then paste this sample (it has to be in a single line):
 ```text
