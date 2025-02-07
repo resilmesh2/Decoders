@@ -1,0 +1,67 @@
+
+<!-- Anomaly Detector Siblings Resilmesh decoders, so any of the possible log formats work, no matter the oder of the fields -->
+<decoder name="ad_resilmesh_decoders">
+    <prematch type="pcre2">(.*)</prematch>
+</decoder>
+
+<!-- extracts protocol -->
+<decoder name="ad_resilmesh_decoders">
+    <parent>ad_resilmesh_decoders</parent>
+    <use_own_name>true</use_own_name>
+    <regex type="pcre2">"protocol":\s?"TCP|UDP"</regex>
+    <order>protocol</order>
+</decoder>
+
+<!-- extracts source IP -->
+<decoder name="ad_resilmesh_decoders">
+    <parent>ad_resilmesh_decoders</parent>
+    <use_own_name>true</use_own_name>
+    <regex type="pcre2">"source_ip":\s?"(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})"</regex>
+    <order>srcip</order>
+</decoder>
+
+<!-- extracts source port -->
+<decoder name="ad_resilmesh_decoders">
+    <parent>ad_resilmesh_decoders</parent>
+    <use_own_name>true</use_own_name>
+    <regex type="pcre2">"source_port":\s?"(\d{1,5})"</regex>
+    <order>srcport</order>
+</decoder>
+
+<!-- extracts destination IP -->
+<decoder name="ad_resilmesh_decoders">
+    <parent>ad_resilmesh_decoders</parent>
+    <use_own_name>true</use_own_name>
+    <regex type="pcre2">"destination_ip":\s?"(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})"</regex>
+    <order>dstip</order>
+</decoder>
+
+<!-- extracts destination port -->
+<decoder name="ad_resilmesh_decoders">
+    <parent>ad_resilmesh_decoders</parent>
+    <use_own_name>true</use_own_name>
+    <regex type="pcre2">"destination_port":\s?"(\d{1,5})"</regex>
+    <order>dstport</order>
+</decoder>
+
+<!-- extracts the flow data -->
+<decoder name="ad_resilmesh_decoders">
+    <parent>ad_resilmesh_decoders</parent>
+    <use_own_name>true</use_own_name>
+    <regex type="pcre2">"flow_data":\s?(\[([0-9]{1,}\.?[0-9]*,?)+\])</regex>
+    <order>data</order>
+</decoder>
+
+<!-- extracts the severity -->
+<decoder name="ad_resilmesh_decoders">
+    <parent>ad_resilmesh_decoders</parent>
+    <use_own_name>true</use_own_name>
+    <regex type="pcre2">"severity":\s?("low"|"medium"|"high")</regex>
+    <order>severity</order>
+</decoder>
+
+<!-- extracts the rest of the event as JSON -->
+<decoder name="ad_resilmesh_decoders">
+    <parent>ad_resilmesh_decoders</parent>
+    <plugin_decoder>JSON_Decoder</plugin_decoder>
+</decoder>
