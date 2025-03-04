@@ -1,7 +1,7 @@
 
 <!-- Anomaly Detector Siblings Resilmesh decoders, so any of the possible log formats work, no matter the oder of the fields -->
 <decoder name="ad_resilmesh_decoders">
-    <prematch type="pcre2">(.*)</prematch>
+    <prematch type="pcre2">"type":"anomalies"</prematch>
 </decoder>
 
 <!-- extracts protocol -->

@@ -6,7 +6,7 @@ Don't forget to restart the Wazuh Manager with "systemctl restart wazuh-manager"
 
 <!-- Siblings Resilmesh decoders, so any of the possible log formats work, no matter the oder of the fields -->
 <decoder name="resilmesh_decoders">
-    <prematch type="pcre2">(.*)</prematch>
+    <prematch type="pcre2">(?!"type":"anomalies")</prematch>
 </decoder>
 
 <!-- extracts source IP -->
